@@ -74,7 +74,7 @@ def serve(options):
         client_options['repo_path'] = os.getcwd()
         return jsonify(client_options)
 
-    @webserver.route('/deps.json/<revspec>')
+    @webserver.route('/deps.json/<path:revspec>')
     def deps(revspec):
         detector = DependencyDetector(options)
         listener = JSONDependencyListener(options)
